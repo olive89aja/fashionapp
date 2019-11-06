@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "bulma": "^0.8.0",
+    "bulma-carousel": "^4.0.4",
     "bulma-start": "0.0.3",
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
