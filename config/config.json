@@ -1,15 +1,20 @@
 {
   "development": {
     "username": "root",
+
     "password": "W0w4ng13!",
     "database": "exampledb",
+
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": 8889
   },
   "test": {
     "username": "root",
+
     "password": "W0w4ng13!",
     "database": "testdb",
+
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
