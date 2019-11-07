@@ -1,16 +1,20 @@
 {
   "development": {
     "username": "root",
+
     "password": "root",
     "database": "outfitsDB",
+
     "host": "localhost",
     "dialect": "mysql",
     "port": 8889
   },
   "test": {
     "username": "root",
+
     "password": "root",
     "database": "outfitsDB",
+
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
