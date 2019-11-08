@@ -2,17 +2,30 @@
   "development": {
     "username": "root",
 
+<<<<<<< HEAD
     "password": "Putain815",
     "database": "outfitsDB",
 
     "host": "localhost",
     "dialect": "mysql",
     "port": 3306
+=======
+    "password": "W0w4ng13!",
+    "database": "exampledb",
+
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 8889
+>>>>>>> a02c631b6ed4da0f61eb4141ea81f3b7d4825f5c
   },
   "test": {
     "username": "root",
 
+<<<<<<< HEAD
     "password": "Putain815",
+=======
+    "password": "W0w4ng13!",
+>>>>>>> a02c631b6ed4da0f61eb4141ea81f3b7d4825f5c
     "database": "testdb",
 
     "host": "localhost",
