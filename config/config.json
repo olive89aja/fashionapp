@@ -1,11 +1,6 @@
 {
   "development": {
     "username": "root",
-
-
-    "password": "Putain815",
-    "database": "outfitsDB",
-
     "host": "localhost",
     "dialect": "mysql",
     "port": 3306
@@ -13,9 +8,6 @@
   },
   "test": {
     "username": "root",
-
-    "password": "Putain815",
-
     "database": "testdb",
 
     "host": "localhost",
