@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
+  // Get all examples - GET
   app.get("/api/examples", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
@@ -14,10 +14,28 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+  // POST - FIND ONE
+  app.post("/api/...", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
+      res.join(dbExample);
+    });
+  });
+  //GET route - FIND ONE
+  app.get("api/...", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
+      res.join(dbExample);
+    });
+  });
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.json(dbExample);
     });
   });
