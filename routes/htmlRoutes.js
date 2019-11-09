@@ -7,8 +7,8 @@ module.exports = function(app) {
   });
 
   app.get("/browse", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
+    db.outfitsDB.findOne({ where: { id: req.params.id } }).then(function(
+      outfitsDB
     ) {
       res.render("browse", {
         example: dbExample
