@@ -9,6 +9,12 @@ module.exports = function(app) {
   });
 
   //Create new outfit
+  app.post("api/closet", function(req, res) {
+    db.Outfit.create({
+      outfits: req.body.outfits,
+      foreignkey: req.body.id
+    });
+  });
 
   // Create a new comment
   app.post("/api/comments", function(req, res) {
