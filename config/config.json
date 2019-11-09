@@ -1,6 +1,10 @@
 {
   "development": {
     "username": "root",
+
+
+    "database": "outfitsDB",
+
     "host": "localhost",
     "dialect": "mysql",
     "port": 3306
@@ -8,6 +12,7 @@
   },
   "test": {
     "username": "root",
+
     "database": "testdb",
 
     "host": "localhost",
@@ -18,4 +23,4 @@
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
-}
+ }

@@ -2,8 +2,10 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load index page/home
+
   app.get("/index", function(req, res) {
     res.render("index", data);
+
   });
   app.get("/browse", function(req, res) {
     db.outfitsDB
