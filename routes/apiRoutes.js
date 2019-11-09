@@ -3,8 +3,8 @@ var db = require("../models");
 module.exports = function(app) {
   // Get all clothes
   app.get("/api/browse", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+    db.Outfit.findAll({}).then(function(dbOutfits) {
+      res.json(dbOutfits);
     });
   });
   //only loads tops/shirts on browse page
@@ -63,3 +63,8 @@ module.exports = function(app) {
   //     });
   //   });
 };
+app.post("outfitsDB", function(req, res) {
+  db.outfitsDB.create(req.body).then(function(dbOutfits) {
+    res.json(pants.json);
+  });
+});

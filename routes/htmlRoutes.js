@@ -3,12 +3,13 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page/home
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    console.log('db.Outfit.findAll');
+    db.Outfit.findAll({}).then(function(dbOutfits) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        examples: dbOutfits
       });
-    });
+    }).catch((error) => console.error(error));
   });
 
   // Loads all clothes on browse page

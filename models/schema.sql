@@ -3,12 +3,3 @@ CREATE DATABASE outfitsDB;
 
 USE outfitsDB;
 
-CREATE TABLE outfits(
-  id INT NOT NULL AUTO_INCREMENT,
-  dresses VARCHAR(45) NULL,
-  tops VARCHAR(45) NULL,
-  pants VARCHAR(45) NULL,
-  shoes VARCHAR(45) NULL,
-  comments VARCHAR(1000) NULL,
-PRIMARY KEY (id)
-)

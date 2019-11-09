@@ -1,5 +1,8 @@
 SELECT * FROM outfitsdb.dresses;
 
+CREATE TABLE dresses (
+PRIMARY KEY(id));
+
 ALTER TABLE outfitsdb.dresses DROP COLUMN account_id;
 ALTER TABLE outfitsdb.dresses DROP COLUMN in_gallery;
 ALTER TABLE outfitsdb.dresses DROP COLUMN title;
