@@ -51,26 +51,21 @@ module.exports = function(app) {
   });
 
   app.get("/", function(req, res) {
-    console.log("get");
     // db.outfitsDB.create(req.body).then(function() {
-    var results = pants[i].link;
 
-    for (let i = 0; i < results.length; i++) {
-      var ClothesDiv = $("<div>");
-      var Clotheimage = $("<img>");
-      Clotheimage.attr("src", results[i].link);
-
-      ClothesDiv.append(Clotheimage);
-
-      $("#imagespants").append(Clotheimage);
+    var pantsArr = [];
+    for (var i = 0; i < pants.length; i++) {
+      var results = pants[i].link;
+      pantsArr.push(results);
     }
+    // results.push(pantsArr);
 
-    res.json(pants[0].link);
+    res.json(pantsArr);
   });
   // });
+  // app.post("outfitsDB", function(req, res) {
+  //   db.outfitsDB.create(req.body).then(function(dbOutfits) {
+  //     res.json(pants.json);
+  //   });
+  // });
 };
-// app.post("outfitsDB", function(req, res) {
-//   db.outfitsDB.create(req.body).then(function(dbOutfits) {
-//     res.json(pants.json);
-//   });
-// });
