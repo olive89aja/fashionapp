@@ -1,24 +1,24 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $outfitText = $("#outfit-text");
+var $outfitDescription = $("#outfit-description");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $outfitList = $("#outfit-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveOutfit: function(outfit) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
       url: "api/examples",
-      data: JSON.stringify(example)
+      data: JSON.stringify(outfit)
     });
   },
-  getExamples: function() {
+  getOutfits: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/outfits",
       type: "GET"
     });
   },
@@ -54,8 +54,8 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $outfitsList.empty();
+    $outfitsList.append($outfits);
   });
 };
 
@@ -64,22 +64,22 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var outfit = {
+    text: $outfitText.val().trim(),
+    description: $outfitDescription.val().trim()
   };
 
-  if (!(example.text && example.description)) {
+  if (!(outfit.text && outfit.description)) {
     alert("You must enter an example text and description!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveExample(outfit).then(function() {
+    refreshOutfits();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $outfitText.val("");
+  $outfitDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -89,11 +89,11 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+  API.deleteOutfit(idToDelete).then(function() {
+    refreshOutfits();
   });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$outfitList.on("click", ".delete", handleDeleteBtnClick);

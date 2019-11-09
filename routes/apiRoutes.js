@@ -1,6 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
+
   //only loads bottoms:pants, skirts, shorts on browse page
   app.get("/bottoms", function(req, res) {
     db.outfitsDB
@@ -49,3 +50,8 @@ module.exports = function(app) {
     });
   });
 };
+app.post("outfitsDB", function(req, res) {
+  db.outfitsDB.create(req.body).then(function(dbOutfits) {
+    res.json(pants.json);
+  });
+});
