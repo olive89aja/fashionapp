@@ -44,7 +44,7 @@ module.exports = function(app) {
       db.outfitsDB
         .findOne({ where: { id: req.params.id } })
         .then(function(outfitsDB) {
-          res.render("example", {
+          res.render("bottoms", {
             example: dbExample
           });
         });
@@ -87,15 +87,17 @@ module.exports = function(app) {
       });
     });
 
+    app.get("/", function(req, res) {
+      // db.outfitsDB.create(req.body).then(function() {
 
-  app.get("/", function(req, res) {
-    // db.outfitsDB.create(req.body).then(function() {
+      var pantsArr = [];
+      for (var i = 0; i < pants.length; i++) {
+        var results = pants[i].link;
+        pantsArr.push(results);
+      }
+      // results.push(pantsArr);
 
-    var pantsArr = [];
-    for (var i = 0; i < pants.length; i++) {
-      var results = pants[i].link;
-      pantsArr.push(results);
-    }
-    // results.push(pantsArr);
-
-    res.json(pantsArr);
+      res.json(pantsArr);
+    });
+  });
+};
