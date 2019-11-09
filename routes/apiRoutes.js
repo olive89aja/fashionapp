@@ -87,28 +87,15 @@ module.exports = function(app) {
       });
     });
 
-    app.get("/", function(req, res) {
-      console.log("get");
-      // db.outfitsDB.create(req.body).then(function() {
+
+  app.get("/", function(req, res) {
+    // db.outfitsDB.create(req.body).then(function() {
+
+    var pantsArr = [];
+    for (var i = 0; i < pants.length; i++) {
       var results = pants[i].link;
+      pantsArr.push(results);
+    }
+    // results.push(pantsArr);
 
-      for (let i = 0; i < results.length; i++) {
-        var ClothesDiv = $("<div>");
-        var Clotheimage = $("<img>");
-        Clotheimage.attr("src", results[i].link);
-
-        ClothesDiv.append(Clotheimage);
-
-        $("#imagespants").append(Clotheimage);
-      }
-
-      res.json(pants[0].link);
-    });
-    // });
-  });
-  // app.post("outfitsDB", function(req, res) {
-  //   db.outfitsDB.create(req.body).then(function(dbOutfits) {
-  //     res.json(pants.json);
-  //   });
-  // });
-};
+    res.json(pantsArr);
