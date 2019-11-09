@@ -2,41 +2,42 @@
 var $outfitText = $("#outfit-text");
 var $outfitDescription = $("#outfit-description");
 var $submitBtn = $("#submit");
-var $outfitList = $("#outfit-list");
+var $deleteBtn = $("#delete");
+var $commentList = $("#comment-list");
 
 // The API object contains methods for each kind of request we'll make
-var API = {
-  saveOutfit: function(outfit) {
+var commentAPI = {
+  saveComment: function(comments) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(outfit)
+      url: "api/comments",
+      data: JSON.stringify(comments)
     });
   },
-  getOutfits: function() {
+  getComments: function() {
     return $.ajax({
-      url: "api/outfits",
+      url: "api/comments",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteComments: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/comments/" + id,
       type: "DELETE"
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
+// refreshComments gets new comments from the db and repopulates the list
+var refreshComments = function() {
+  commentAPI.getComments().then(function(data) {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(comment.text)
+        .attr("href", "/comment/" + comment.id);
 
       var $li = $("<li>")
         .attr({
@@ -61,21 +62,23 @@ var refreshExamples = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
+
+//CHANGE CODE AS YOU SEE FIT HANDLEBAR WISE
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var outfit = {
-    text: $outfitText.val().trim(),
-    description: $outfitDescription.val().trim()
+  var comment = {
+    text: $exampleText.val().trim(),
+    description: $exampleDescription.val().trim()
   };
 
-  if (!(outfit.text && outfit.description)) {
-    alert("You must enter an example text and description!");
+  if (!(comment.text && comment.description)) {
+    alert("You must enter a comment!");
     return;
   }
 
-  API.saveExample(outfit).then(function() {
-    refreshOutfits();
+  commentAPI.saveComment(comment).then(function() {
+    refreshComments();
   });
 
   $outfitText.val("");
@@ -89,11 +92,11 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteOutfit(idToDelete).then(function() {
-    refreshOutfits();
+  commentAPI.deleteComment(idToDelete).then(function() {
+    refreshComments();
   });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$outfitList.on("click", ".delete", handleDeleteBtnClick);
+$deleteBtn.on("click", ".delete", handleDeleteBtnClick);
