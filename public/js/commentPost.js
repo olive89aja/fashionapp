@@ -1,9 +1,9 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $outfitText = $("#outfit-text");
+var $outfitDescription = $("#outfit-description");
 var $submitBtn = $("#submit");
 var $deleteBtn = $("#delete");
-var $exampleList = $("#example-list");
+var $commentList = $("#comment-list");
 
 // The API object contains methods for each kind of request we'll make
 var commentAPI = {
@@ -55,8 +55,8 @@ var refreshComments = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $outfitsList.empty();
+    $outfitsList.append($outfits);
   });
 };
 
@@ -81,8 +81,8 @@ var handleFormSubmit = function(event) {
     refreshComments();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $outfitText.val("");
+  $outfitDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked

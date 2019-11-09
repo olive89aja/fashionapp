@@ -29,6 +29,11 @@
                 var results2 = results.images;    
                         console.log(results);  
                         console.log(results.images[0]);   
+<<<<<<< HEAD
+                        var results3=JSON.stringify(results2);
+                        console.log(results3);
+=======
+>>>>>>> a02c631b6ed4da0f61eb4141ea81f3b7d4825f5c
                      
                         for (let jj =0; jj<results2.length; jj++)
                         {

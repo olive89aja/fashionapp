@@ -35,17 +35,40 @@ module.exports = function(app) {
 
   // Load comment page and pass in an example by id
   app.get("/comments", function(req, res) {
-    db.Comment.findOne({ where: { id: req.params.id } }).then(function(
-      dbComment
-    ) {
+    db.Comment.findOne({ where: { id: req.params.id } }).then(function(dbComment) {
       res.render("comments", {
-        commnet: dbComment
-      });
+        comment: dbComment
+      }
     });
   });
+      
+  // Load index page/home
 
-  // Render 404 page for any unmatched routes
+  app.get("/index", function(req, res) {
+    res.render("index", data);
+  });
+
+  app.get("/browse", function(req, res) {
+    db.outfitsDB
+      .findOne({ where: { id: req.params.id } })
+      .then(function(outfitsDB) {
+        res.render("browse", {
+          example: outfitsDB
+        });
+      });
+  });
+
+  app.get("/closet", function(req, res) {
+    res.render("closet", data);
+  });
+      
+  app.get("/outfits", function(req, res) {
+    res.render("outfits", data);
+  });
+      
+  // Render 404 page
   app.get("*", function(req, res) {
     res.render("404");
   });
+
 };
