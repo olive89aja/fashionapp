@@ -13,6 +13,8 @@ module.exports = function(app) {
     db.Outfit.create({
       outfits: req.body.outfits,
       foreignkey: req.body.id
+    }).then(function(dbOutfits) {
+      res.json(dbOutfits);
     });
   });
 
