@@ -1,8 +1,9 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all clothes
-  app.get("/api/browse", function(req, res) {
+  // Get all examples - GET
+  app.get("/api/examples", function(req, res) {
+
     db.Example.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
     });
@@ -17,6 +18,12 @@ module.exports = function(app) {
       });
     });
   });
+  // Delete an example by id
+  app.delete("/api/examples/:id", function(req, res) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
+      res.json(dbExample);
   //only loads bottoms:pants, skirts, shorts on browse page
   app.get("/bottoms", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(
