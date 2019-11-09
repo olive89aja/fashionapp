@@ -1,15 +1,7 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
   var Closet = sequelize.define("Closet", {
-    tops: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    dresses: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    shoes: {
+    oufits: {
       type: DataTypes.STRING,
       allowNull: false
     },

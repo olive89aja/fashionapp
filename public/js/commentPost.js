@@ -2,10 +2,11 @@
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
+var $deleteBtn = $("#delete");
 var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
-var API = {
+var commentAPI = {
   saveComment: function(comments) {
     return $.ajax({
       headers: {
@@ -32,7 +33,7 @@ var API = {
 
 // refreshComments gets new comments from the db and repopulates the list
 var refreshComments = function() {
-  API.getComments().then(function(data) {
+  commentAPI.getComments().then(function(data) {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
         .text(comment.text)
@@ -61,6 +62,8 @@ var refreshComments = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
+
+//CHANGE CODE AS YOU SEE FIT HANDLEBAR WISE
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
@@ -74,7 +77,7 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveComment(comment).then(function() {
+  commentAPI.saveComment(comment).then(function() {
     refreshComments();
   });
 
@@ -89,11 +92,11 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteComment(idToDelete).then(function() {
+  commentAPI.deleteComment(idToDelete).then(function() {
     refreshComments();
   });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$deleteBtn.on("click", ".delete", handleDeleteBtnClick);
