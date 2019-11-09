@@ -6,37 +6,37 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveComment: function(comments) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/comments",
+      data: JSON.stringify(comments)
     });
   },
-  getExamples: function() {
+  getComments: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/comments",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteComments: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/comments/" + id,
       type: "DELETE"
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
+// refreshComments gets new comments from the db and repopulates the list
+var refreshComments = function() {
+  API.getComments().then(function(data) {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(comment.text)
+        .attr("href", "/comment/" + comment.id);
 
       var $li = $("<li>")
         .attr({
@@ -64,18 +64,18 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
+  var comment = {
     text: $exampleText.val().trim(),
     description: $exampleDescription.val().trim()
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  if (!(comment.text && comment.description)) {
+    alert("You must enter a comment!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveComment(comment).then(function() {
+    refreshComments();
   });
 
   $exampleText.val("");
@@ -89,8 +89,8 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+  API.deleteComment(idToDelete).then(function() {
+    refreshComments();
   });
 };
 

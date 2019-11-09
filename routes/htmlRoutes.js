@@ -3,21 +3,43 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Outfit.findAll({}).then(function(dbOutfits) {
       res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
+        msg: "Swiftly, your digital closet",
+        outfits: dbOutfits
+      });
+    });
+  });
+
+  // Load closet page where the outfits are made
+  app.get("/closet", function(req, res) {
+    db.Closet.findOne({ where: { id: req.params.id } }).then(function(
+      dbCloset
+    ) {
+      res.render("closet", {
+        closet: dbCloset
       });
     });
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
+  app.get("/closet/:id", function(req, res) {
+    db.Outfit.findOne({ where: { id: req.params.id } }).then(function(
+      dbOutfit
     ) {
-      res.render("example", {
-        example: dbExample
+      res.render("outfit", {
+        outfit: dbOutfit
+      });
+    });
+  });
+
+  // Load comment page and pass in an example by id
+  app.get("/comments", function(req, res) {
+    db.Comment.findOne({ where: { id: req.params.id } }).then(function(
+      dbComment
+    ) {
+      res.render("comments", {
+        commnet: dbComment
       });
     });
   });
