@@ -1,14 +1,36 @@
 var db = require("../models");
-var pants = require("../pants.json");
-var tops = require("../tops.json");
-var dresses = require("../dresses.json");
-var shoes = require("../shoes.json");
+var pants = require("../clothesJSON/pants.json");
+var tops = require("../clothesJSON/tops.json");
+var dresses = require("../clothesJSON/dresses.json");
+var shoes = require("../clothesJSON/shoes.json");
 
 module.exports = function(app) {
   // Get all queries for outfits
-  app.get("/api/all", function(req, res) {
-    db.Outfit.findAll({}).then(function(dbOutfits) {
-      res.json(dbOutfits);
+
+  // app.get("/api/all", function(req, res) {
+  //   db.Tops.findAll({}).then(function(dbAll) {
+  //     res.json(dbAll);
+  //   });
+  // });
+
+  app.get("/api/all/tops", function(req, res) {
+    db.Tops.findAll({}).then(function(dbTops) {
+      res.json(dbTops);
+    });
+  });
+  app.get("/api/all/pants", function(req, res) {
+    db.Pants.findAll({}).then(function(dbPants) {
+      res.json(dbPants);
+    });
+  });
+  app.get("/api/all/dresses", function(req, res) {
+    db.Dresses.findAll({}).then(function(dbDresses) {
+      res.json(dbDresses);
+    });
+  });
+  app.get("/api/all/shoes", function(req, res) {
+    db.Shoes.findAll({}).then(function(dbShoes) {
+      res.json(dbShoes);
     });
   });
 

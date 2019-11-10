@@ -46,9 +46,10 @@ module.exports = function(app) {
   // Load index page/home
 
   app.get("/browse", function(req, res) {
-    db.outfitsDB.findAll({}).then(function() {
-      res.render("browse");
-    });
+    // db.Tops.findAll({}).then(function( dbTops ) {
+    // res.json(dbTops);
+    res.render("browse", { Tops: "url" });
+    // });
   });
 
   app.get("/closet", function(req, res) {
