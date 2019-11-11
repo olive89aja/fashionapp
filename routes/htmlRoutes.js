@@ -1,10 +1,6 @@
 var db = require("../models");
-var path = require("path");
+var Tops = require("../models/Tops");
 module.exports = function(app) {
-  // // LOAD HOME PAGE WITH HTML
-  // app.get("/", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../testing html/test_home.html"));
-  // });
   // LOAD HOME PAGE WITH HANDLEBARS
   app.get("/", function(req, res) {
     res.render("index");
@@ -46,10 +42,11 @@ module.exports = function(app) {
   // Load index page/home
 
   app.get("/browse", function(req, res) {
-    // db.Tops.findAll({}).then(function( dbTops ) {
-    // res.json(dbTops);
-    res.render("browse", { Tops: "url" });
-    // });
+    db.Tops.findAll({}).then(function(dataValues) {
+      // res.json(dbTops);
+      res.render("browse", { Tops: dataValues });
+      console.log( Tops{dataValues:url} );
+    });
   });
 
   app.get("/closet", function(req, res) {
