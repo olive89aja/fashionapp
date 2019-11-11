@@ -79,15 +79,12 @@
             <div class="column is-one-quarter">
                 <div class="box">
                     <section>
-                        <form method="POST" action="api/closet">
-                            <p class="buttons">
-                                <a class="button">
-                                    <span class="icon">
-                                        <i class="far fa-plus-square"></i>
-                                    </span>
-                                </a>
-                                <img src={{this.url}} />
-                        </form>
+                        {{!-- <form method="POST" action="api/closet"> --}}
+                        <button>
+                            <i class="far fa-plus-square"></i>
+                        </button>
+                        <img id="top" src={{this.url}} />
+                        {{!-- </form> --}}
 
                     </section>
                 </div>
@@ -95,10 +92,10 @@
             {{/each}}
             {{!-- for each bottom--}}
             {{#each Pants}}
-            <div class=" column is-one-quarter">
+            <div class="column is-one-quarter">
                 <div class="box">
                     <section>
-                        <img src={{this.url}} />
+                        <img id="pants" src={{this.url}} />
 
                     </section>
                 </div>
@@ -131,3 +128,22 @@
     </div>
 
 </main>
+<script type="text/javascript">
+    $(".submit").on("click", function (e) {
+        e.preventDefault();
+        const outfit = {
+            top: $("#top")
+                
+            photo: $("#pants")
+               
+
+            $.post("/api/closet", outfit, function (data) {
+                $("#outfitTop").html("src", data.top);
+                $("#OutfitPant").attr("src", data.pants);
+                //  $("#modal").addClass("is-active");
+                //$(".modal-close").click(function () {
+                //  $(".modal").removeClass("is-active");
+            });
+        });
+        });
+</script>
