@@ -4,7 +4,7 @@
     }
 
     nav {
-        margin-left: 44%;
+        margin-left: 36%;
         font-size: 1.5em;
     }
 
@@ -45,16 +45,16 @@
     <nav class="navbar is-transparent is">
         <div class="navbar-menu ">
             <div class="navbar-start">
-                <a class="navbar-item" href="https://bulma.io/">
+                <a class="navbar-item" href="/browse/tops">
                     Tops
                 </a>
-                <a class="navbar-item" href="https://bulma.io/">
+                <a class="navbar-item" href="/browse/bottoms">
                     Bottoms
                 </a>
-                <a class="navbar-item" href="https://bulma.io/">
+                <a class="navbar-item" href="/browse/dresses">
                     Dresses
                 </a>
-                <a class="navbar-item" href="https://bulma.io/">
+                <a class="navbar-item" href="/browse/shoes">
                     Shoes
                 </a>
             </div>
@@ -63,16 +63,49 @@
     <div class="column ">
         <h1 id="searchClothes" class="title is-1 has-text-centered ">
             {{!-- varible for tab choosen, ex "clothes" is all, if Tops choosen should read "Tops" --}}
-            {{title}}
+            Clothes
         </h1>
         <div class="columns is-multiline">
-            {{!-- for each item --}}
+            {{!-- for each top --}}
             {{#each Tops}}
             <div class="column is-one-quarter">
                 <div class="box">
                     <section>
-                        <img src="images/1-15-2017.jpg" />
-                        {{!-- <img src={this.data.url} /> --}}
+                        <img src={{this.url}} />
+
+                    </section>
+                </div>
+            </div>
+            {{/each}}
+            {{!-- for each bottom--}}
+            {{#each Pants}}
+            <div class="column is-one-quarter">
+                <div class="box">
+                    <section>
+                        <img src={{this.url}} />
+
+                    </section>
+                </div>
+            </div>
+            {{/each}}
+            {{!-- for each dress--}}
+            {{#each Dresses}}
+            <div class="column is-one-quarter">
+                <div class="box">
+                    <section>
+                        <img src={{this.url}} />
+
+                    </section>
+                </div>
+            </div>
+            {{/each}}
+            {{!-- for each shoe--}}
+            {{#each Shoes}}
+            <div class="column is-one-quarter">
+                <div class="box">
+                    <section>
+                        <img src={{this.url}} />
+
                     </section>
                 </div>
             </div>

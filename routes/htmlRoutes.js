@@ -1,5 +1,5 @@
 var db = require("../models");
-var Tops = require("../models/Tops");
+// var Tops = require("../models/Tops");
 module.exports = function(app) {
   // LOAD HOME PAGE WITH HANDLEBARS
   app.get("/", function(req, res) {
@@ -39,13 +39,26 @@ module.exports = function(app) {
     });
   });
 
-  // Load index page/home
+  // Load browse page/
 
-  app.get("/browse", function(req, res) {
-    db.Tops.findAll({}).then(function(dataValues) {
-      // res.json(dbTops);
-      res.render("browse", { Tops: dataValues });
-      console.log( Tops{dataValues:url} );
+  app.get("/browse/tops", function(req, res) {
+    db.Tops.findAll({}).then(function(data) {
+      res.render("browse", { Tops: data });
+    });
+  });
+  app.get("/browse/bottoms", function(req, res) {
+    db.Pants.findAll({}).then(function(data) {
+      res.render("browse", { Pants: data });
+    });
+  });
+  app.get("/browse/dresses", function(req, res) {
+    db.resses.findAll({}).then(function(data) {
+      res.render("browse", { Dresses: data });
+    });
+  });
+  app.get("/browse/shoes", function(req, res) {
+    db.Shoes.findAll({}).then(function(data) {
+      res.render("browse", { Shoes: data });
     });
   });
 
