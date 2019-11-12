@@ -12,8 +12,7 @@
 
 <div class="column is-11">
     <h1 class="title is-1 has-text-centered">Build an Outfit</h1>
-    {{!-- FORM FOR POST --}}
-    {{!-- <form method="POST" action="/api/closet"> --}}
+
     {{!-- for each TOPS --}}
     <h2 class=" has-text-centered"> Choose a Top</h2>
     <div id="tops" class="w3-content w3-display-container">
@@ -79,19 +78,14 @@
         </button>
     </div>
     <div class="columns">
-        <div class="column is-offset-3">
-            <div class="field is-grouped">
-                <div class="control">
-                    {{!-- ADDS THESE CHOOSEN CLOTHES TO THE OUTFIT PAGE/TABLE --}}
-                    <button type="submit" id="saveOutfit" class=" button is-rounded">Save this Look!</button>
-                </div>
-
-                {{!-- </form> --}}
-            </div>
+        <div class="column is-offset-4">
             <div class="column">
+                {{!-- ADDS THESE CHOOSEN CLOTHES TO THE OUTFIT PAGE/TABLE --}}
+                <button type="submit" id="saveOutfit" class=" button is-rounded">Save this Look!</button>
+
                 {{!-- TAKES  USER TO THE OUTFITS PAGE--}}
                 <a href="/closet">
-                    <button class="button is-rounded">Saved Outfits</button>
+                    <button class="button is-rounded">My Outfits</button>
                 </a>
             </div>
         </div>

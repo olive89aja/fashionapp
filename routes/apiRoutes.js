@@ -5,11 +5,6 @@ var dresses = require("../clothesJSON/dresses.json");
 var shoes = require("../clothesJSON/shoes.json");
 
 module.exports = function(app) {
-<<<<<<< HEAD
-  // Get all queries for outfits
-
-=======
->>>>>>> db7bd058c9e506ecf5e4371f5a76df4072e6da88
   app.get("/api/tops", function(req, res) {
     db.Tops.findAll({}).then(function(dbTops) {
       res.json(dbTops);
@@ -36,31 +31,8 @@ module.exports = function(app) {
 
   //Create new outfit
   app.post("/api/closet", function(req, res) {
-    console.log(req.body);
     db.Outfit.create(req.body).then(function(dbOutfits) {
       res.json(dbOutfits);
-    });
-  });
-
-  // Create a new comment
-  app.post("/api/comments", function(req, res) {
-    console.log("Someone made a comment! Look: ");
-    console.log(req.body.comment);
-    db.Comment.create({
-      anon: req.body.anon,
-      comment: req.body.comment,
-      foreignkey: req.body.id
-    }).then(function(dbComment) {
-      res.json(dbComment);
-    });
-  });
-
-  // Delete a comment by id
-  app.delete("/api/comments/:id", function(req, res) {
-    db.Comment.destroy({ where: { id: req.params.id } }).then(function(
-      dbComment
-    ) {
-      res.json(dbComment);
     });
   });
 
@@ -116,12 +88,4 @@ module.exports = function(app) {
       });
     });
   });
-  // });
-  // app.post("outfitsDB", function(req, res) {
-  //   db.outfitsDB.create(req.body).then(function(dbOutfits) {
-  //     res.json(pants.json);
-  //   });
-  // });
-
-  // results.push(pantsArr);
 };

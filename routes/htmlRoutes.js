@@ -5,31 +5,11 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("index");
   });
-
-  // Load comment page and pass in an example by id
-  app.get("/comments", function(req, res) {
-    db.Comment.findOne({ where: { id: req.params.id } }).then(function(
-      dbComment
-    ) {
-      res.render("comments", {
-        comment: dbComment
-      });
-    });
+  app.get("/about", function(req, res) {
+    res.render("about");
   });
 
-  // Load browse page/
-
-  // app.get("/browse", function(req, res) {
-  //   db.Tops.findAll({
-  //     include: [
-  //       {
-  //         model: db.Pants
-  //       }
-  //     ]
-  //   }).then(function(AllData) {
-  //     res.render("browse", AllData);
-  //   });
-  // });
+  // Load build It page/
   app.get("/browse/all", function(req, res) {
     db.Tops.findAll({}).then(function(Tops) {
       db.Pants.findAll({}).then(function(Pants) {
@@ -46,22 +26,7 @@ module.exports = function(app) {
       });
     });
   });
-  // app.get("/browse/all", function(req, res) {
-  //   db.Tops.findAll({}).then(function(Tops) {
-  //     db.Pants.findAll({}).then(function(Pants) {
-  //       db.Dresses.findAll({}).then(function(Dresses) {
-  //         db.Shoes.findAll({}).then(function(Shoes) {
-  //           res.render("browse", {
-  //             Tops,
-  //             Pants,
-  //             Dresses,
-  //             Shoes
-  //           });
-  //         });
-  //       });
-  //     });
-  //   });
-  // });
+
   app.get("/browse/tops", function(req, res) {
     db.Tops.findAll({}).then(function(data) {
       res.render("browse", { Tops: data });
@@ -82,31 +47,7 @@ module.exports = function(app) {
       res.render("browse", { Shoes: data });
     });
   });
-  // app.get("/buildt", function(req, res) {
-  //   db.Tops.findAll({}).then(function(data) {
-  //     res.render("buildt", { Tops: data });
-  //   });
-  // });
-  // app.get("/buildt", function(req, res) {
-  //   db.Pants.findAll({}).then(function(data) {
-  //     res.render("buildt", { Pants: data });
-  //   });
-  // });
-  app.get("/buildt", function(req, res) {
-    db.Dresses.findAll({}).then(function(data) {
-      res.render("buildt", { Dresses: data });
-    });
-  });
-  app.get("/buildt", function(req, res) {
-    db.Shoes.findAll({}).then(function(data) {
-      res.render("buildt", { Shoes: data });
-    });
-  });
-
-  // app.get("/closet", function(req, res) {
-  //   res.render("closet", data);
-  // });
-
+  //Closet/Outfit Page
   app.get("/closet", function(req, res) {
     db.Outfit.findAll({}).then(function(data) {
       res.render("closet", { outfit: data });
