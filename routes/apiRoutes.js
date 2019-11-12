@@ -36,51 +36,6 @@ module.exports = function(app) {
     });
   });
 
-<<<<<<< HEAD
-  // Create a new comment
-  app.post("/api/comments", function(req, res) {
-    console.log("Someone made a comment! Look: ");
-    console.log(req.body.comment);
-    db.Comment.create({
-      anon: req.body.anon,
-      comment: req.body.comment,
-      foreignkey: req.body.id
-    }).then(function(dbComment) {
-      res.json(dbComment);
-    });
-  });
-
-  // Delete a comment by id
-  app.delete("/api/comments/:id", function(req, res) {
-    db.Comment.destroy({ where: { id: req.params.id } }).then(function(
-      dbComment
-    ) {
-      res.json(dbComment);
-    });
-<<<<<<< HEAD
-    //only loads bottoms:pants, skirts, shorts on browse page
-    app.get("/bottoms", function(req, res) {
-      db.outfitsDB
-        .findOne({ where: { id: req.params.id } })
-        .then(function(outfitsDB) {
-          res.render("bottoms", {
-            example: dbExample
-          });
-=======
-
-    //POST TOPS TO TOPS TABLE
-    app.post("/api/tops", function(req, res) {
-      var topsArr = [];
-      for (var i = 0; i < tops.length; i++) {
-        var results = tops[i].link;
-        topsArr.push(results);
-      }
-      topsArr.forEach(function(top) {
-        db.Tops.create({
-          url: top
->>>>>>> 31afee8efba3734d978056f5635cfd86bbbc4d84
-        });
-=======
   //POST TOPS TO TOPS TABLE
   app.post("/api/tops", function(req, res) {
     var topsArr = [];
@@ -91,7 +46,6 @@ module.exports = function(app) {
     topsArr.forEach(function(top) {
       db.Tops.create({
         url: top
->>>>>>> 511369993468a65dff9dcfc269df4ff0ceb87f16
       });
     });
   });
@@ -133,31 +87,5 @@ module.exports = function(app) {
         url: shoe
       });
     });
-<<<<<<< HEAD
-    // });
-    // app.post("outfitsDB", function(req, res) {
-    //   db.outfitsDB.create(req.body).then(function(dbOutfits) {
-    //     res.json(pants.json);
-    //   });
-    // });
-
-<<<<<<< HEAD
-    app.get("/", function(req, res) {
-      // db.outfitsDB.create(req.body).then(function() {
-
-      var pantsArr = [];
-      for (var i = 0; i < pants.length; i++) {
-        var results = pants[i].link;
-        pantsArr.push(results);
-      }
-      // results.push(pantsArr);
-
-      res.json(pantsArr);
-    });
-=======
-    // results.push(pantsArr);
->>>>>>> 31afee8efba3734d978056f5635cfd86bbbc4d84
-=======
->>>>>>> 511369993468a65dff9dcfc269df4ff0ceb87f16
   });
 };
