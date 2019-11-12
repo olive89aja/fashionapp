@@ -11,6 +11,8 @@
         padding: 0;
         margin-top: 50px;
         border: solid;
+        height: 270px;
+        overflow: hidden;
     }
 
     .tile {
@@ -38,34 +40,37 @@
         margin-top: 40px;
     }
 </style>
-<div class="column ">
-    <h1 class="title is-1 has-text-centered ">Closet</h1>
+<main>
 
-    <div class="columns ">
-        {{!-- FOR EACH OUTFIT --}}
-        {{#each outfit}}
-        <div class="column ">
-            <div class="box">
-                <div class="tile">
-                    <div class="tile is-parent is-vertical">
-                        <section class="tile is-child">
-                            <img src={{this.dresses}} />
-                        </section>
-                        <section class="tile is-child">
-                            <img src={{this.tops}} />
-                        </section>
-                    </div>
-                    <div class="tile is-parent is-vertical">
-                        <section class="tile is-child">
-                            <img src={{this.pants}} />
-                        </section>
-                        <section class="tile is-child">
-                            <img src={{this.shoes}} />
-                        </section>
+    <div class="column ">
+        <h1 class="title is-1 has-text-centered ">Closet</h1>
+
+        <div class="columns is-multiline">
+            {{!-- FOR EACH OUTFIT --}}
+            {{#each outfit}}
+            <div class="column is-one-quarter">
+                <div class="box">
+                    <div class="tile">
+                        <div class="tile is-parent is-vertical">
+                            <section class="tile is-child">
+                                <img src={{this.dresses}} />
+                            </section>
+                            <section class="tile is-child">
+                                <img src={{this.tops}} />
+                            </section>
+                        </div>
+                        <div class="tile is-parent is-vertical">
+                            <section class="tile is-child">
+                                <img src={{this.pants}} />
+                            </section>
+                            <section class="tile is-child">
+                                <img src={{this.shoes}} />
+                            </section>
+                        </div>
                     </div>
                 </div>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
-</div>
+</main>
