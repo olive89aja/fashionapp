@@ -1,6 +1,6 @@
 body,
 html {
-  height: 100%;
+  /* height: 100%; */
   margin: 0;
 }
 #swiftly {
@@ -29,16 +29,16 @@ html {
   background-color: transparent;
   color: #3273dc;
 }
-.hero.has-background {
+/* .hero.has-background {
   position: relative;
   overflow: hidden;
-}
+} */
 .hero-background {
   object-fit: cover;
   object-position: center center;
   width: 100%;
   height: 100%;
-  position: fixed;
+  position: relative;
 }
 #reinvent-ypurself {
   position: relative;
@@ -116,25 +116,28 @@ body {
 }
 
 .bg-img-1 {
-  /* background-image: url("swiftly-homepage.gif"); */
+  background-image: url(../images/swiftly-homepage.gif);
   min-height: 100%;
 }
 .bg-img-goth {
-  /* background-image: url("goth.png"); */
+  background-image: url(../images/goth.png);
+  min-height: 100%;
+}
+.goth-text {
   min-height: 100%;
 }
 .bg-img-prep {
-  /* background-image: url("prep_white_bg.png"); */
+  background-image: url(../images/prep_white_bg.png);
   min-height: 100%;
 }
 
 .bg-img-kawaii {
-  /* background-image: url("kawaii.jpeg"); */
+  background-image: url(../images/kawaii.jpeg);
   min-height: 100%;
 }
 
 .bg-img-last {
-  /* background-image: url("last-home-page-swiftly-0.png"); */
+  background-image: url(../images/last-home-page-swiftly-0.png);
   min-height: 100%;
 }
 
