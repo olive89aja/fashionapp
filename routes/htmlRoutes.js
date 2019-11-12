@@ -35,7 +35,7 @@ module.exports = function(app) {
       db.Pants.findAll({}).then(function(Pants) {
         db.Dresses.findAll({}).then(function(Dresses) {
           db.Shoes.findAll({}).then(function(Shoes) {
-            res.render("browse", {
+            res.render("buildt", {
               Tops,
               Pants,
               Dresses,
@@ -46,6 +46,22 @@ module.exports = function(app) {
       });
     });
   });
+  // app.get("/browse/all", function(req, res) {
+  //   db.Tops.findAll({}).then(function(Tops) {
+  //     db.Pants.findAll({}).then(function(Pants) {
+  //       db.Dresses.findAll({}).then(function(Dresses) {
+  //         db.Shoes.findAll({}).then(function(Shoes) {
+  //           res.render("browse", {
+  //             Tops,
+  //             Pants,
+  //             Dresses,
+  //             Shoes
+  //           });
+  //         });
+  //       });
+  //     });
+  //   });
+  // });
   app.get("/browse/tops", function(req, res) {
     db.Tops.findAll({}).then(function(data) {
       res.render("browse", { Tops: data });
