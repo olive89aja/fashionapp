@@ -5,8 +5,11 @@ var dresses = require("../clothesJSON/dresses.json");
 var shoes = require("../clothesJSON/shoes.json");
 
 module.exports = function(app) {
+<<<<<<< HEAD
   // Get all queries for outfits
 
+=======
+>>>>>>> db7bd058c9e506ecf5e4371f5a76df4072e6da88
   app.get("/api/tops", function(req, res) {
     db.Tops.findAll({}).then(function(dbTops) {
       res.json(dbTops);
