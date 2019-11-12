@@ -1,3 +1,8 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
 #swiftly {
   font-family: "hypatia-sans-pro", sans-serif;
   color: black;
@@ -86,6 +91,41 @@ body {
   font-style: italic;
   font-size: 20em;
 }
+.bg-img-1,
+.bg-img-goth,
+.bg-img-prep,
+.bg-img-kawaii,
+.bg-img-last {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-img-1 {
+  /* background-image: url("../public/images/swiftly-homepage.gif"); */
+  min-height: 100%;
+}
+.bg-img-goth {
+  /* background-image: url("../public/images/goth.png"); */
+  min-height: 100%;
+}
+.bg-img-prep {
+  /* background-image: url("../public/images/goth.png"); */
+  min-height: 100%;
+}
+
+.bg-img-kawaii {
+  /* background-image: url("../public/images/goth.png"); */
+  min-height: 100%;
+}
+
+.bg-img-last {
+  /* background-image: url("../public/images/goth.png"); */
+  min-height: 100%;
+}
+
 #last-page-text {
   height: 150px;
   margin-bottom: 500px;
