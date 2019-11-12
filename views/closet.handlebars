@@ -11,6 +11,8 @@
         padding: 0;
         margin-top: 50px;
         border: solid;
+        height: 270px;
+        overflow: hidden;
     }
 
     .tile {
@@ -38,81 +40,37 @@
         margin-top: 40px;
     }
 </style>
-<div class="column ">
-    <h1 class="title is-1 has-text-centered ">Closet</h1>
+<main>
 
-    <div class="columns ">
-        {{!-- FOR EACH OUTFIT --}}
-        {{#each outfit}}
-        <div class="column ">
-            <div class="box">
-                <div class="tile">
-                    <div class="tile is-parent is-vertical">
-                        <section class="tile is-child">
-                            <img src="{{selectedTop.url}}" />
-                        </section>
-                        <section class="tile is-child">
-                            <img src="{{selectedBottoms.url}}" />
-                        </section>
-                    </div>
-                    <div class="tile is-parent is-vertical">
-                        <section class="tile is-child">
-                            <img src="{{selectedDress.url}}" />
-                        </section>
-                        <section class="tile is-child">
-                            <img src="{{sectedShoes.url}}" />
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{/each}}
-    </div>
-</div>
-<div class="modal" id="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-        <div class="card">
-            <div class="card-image">
-                <figure class="image is-4by3">
-                    <img id="matchPhoto" src="images/1-15-2017.jpg" alt="Placeholder image" />
-                </figure>
-            </div>
-            <div class="card-content">
-                <div class="media">
-                    <div class="media-content">
-                        <p class="title is-4"></p>
-                    </div>
-                </div>
+    <div class="column ">
+        <h1 class="title is-1 has-text-centered ">Closet</h1>
 
-                <div class="content">
-                    <p>This should be a comment from the database!</p>
-                </div>
-            </div>
-        </div>
-        <article class="media">
-            <div class="media-content">
-                <div class="field">
-                    <p class="control">
-                        <textarea class="textarea" placeholder="Add a comment..."></textarea>
-                    </p>
-                </div>
-                <nav class="level">
-                    <div class="level-left">
-                        <div class="level-item">
-                            <a class="button is-info">Submit</a>
+        <div class="columns is-multiline">
+            {{!-- FOR EACH OUTFIT --}}
+            {{#each outfit}}
+            <div class="column is-one-quarter">
+                <div class="box">
+                    <div class="tile">
+                        <div class="tile is-parent is-vertical">
+                            <section class="tile is-child">
+                                <img src={{this.dresses}} />
+                            </section>
+                            <section class="tile is-child">
+                                <img src={{this.tops}} />
+                            </section>
+                        </div>
+                        <div class="tile is-parent is-vertical">
+                            <section class="tile is-child">
+                                <img src={{this.pants}} />
+                            </section>
+                            <section class="tile is-child">
+                                <img src={{this.shoes}} />
+                            </section>
                         </div>
                     </div>
-                    <div class="level-right">
-                        <div class="level-item">
-                            <label class="checkbox">
-                                <input type="checkbox" /> Press enter to submit
-                            </label>
-                        </div>
-                    </div>
-                </nav>
+                </div>
             </div>
-        </article>
+            {{/each}}
+        </div>
     </div>
-    <button class="modal-close is-large" aria-label="close"></button>
-</div>
+</main>

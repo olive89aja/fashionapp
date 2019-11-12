@@ -5,53 +5,28 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("index");
   });
+  app.get("/about", function(req, res) {
+    res.render("about");
+  });
 
-  // Load closet page where the outfits are made
-  // app.get("/closet", function(req, res) {
-  //   db.Closet.findOne({ where: { id: req.params.id } }).then(function(
-  //     dbCloset
-  //   ) {
-  //     res.render("closet", {
-  //       closet: dbCloset
-  //     });
-  //   });
-  // });
-
-  // Load example page and pass in an example by id
-  // app.get("/closet/:id", function(req, res) {
-  //   db.Outfit.findOne({ where: { id: req.params.id } }).then(function(
-  //     dbOutfit
-  //   ) {
-  //     res.render("outfit", {
-  //       outfit: dbOutfit
-  //     });
-  //   });
-  // });
-
-  // Load comment page and pass in an example by id
-  app.get("/comments", function(req, res) {
-    db.Comment.findOne({ where: { id: req.params.id } }).then(function(
-      dbComment
-    ) {
-      res.render("comments", {
-        comment: dbComment
+  // Load build It page/
+  app.get("/browse/all", function(req, res) {
+    db.Tops.findAll({}).then(function(Tops) {
+      db.Pants.findAll({}).then(function(Pants) {
+        db.Dresses.findAll({}).then(function(Dresses) {
+          db.Shoes.findAll({}).then(function(Shoes) {
+            res.render("buildt", {
+              Tops,
+              Pants,
+              Dresses,
+              Shoes
+            });
+          });
+        });
       });
     });
   });
 
-  // Load browse page/
-
-  // app.get("/browse", function(req, res) {
-  //   db.Tops.findAll({
-  //     include: [
-  //       {
-  //         model: db.Pants
-  //       }
-  //     ]
-  //   }).then(function(AllData) {
-  //     res.render("browse", AllData);
-  //   });
-  // });
   app.get("/browse/tops", function(req, res) {
     db.Tops.findAll({}).then(function(data) {
       res.render("browse", { Tops: data });
@@ -72,33 +47,11 @@ module.exports = function(app) {
       res.render("browse", { Shoes: data });
     });
   });
-  // app.get("/buildt", function(req, res) {
-  //   db.Tops.findAll({}).then(function(data) {
-  //     res.render("buildt", { Tops: data });
-  //   });
-  // });
-  // app.get("/buildt", function(req, res) {
-  //   db.Pants.findAll({}).then(function(data) {
-  //     res.render("buildt", { Pants: data });
-  //   });
-  // });
-  app.get("/buildt", function(req, res) {
-    db.Dresses.findAll({}).then(function(data) {
-      res.render("buildt", { Dresses: data });
+  //Closet/Outfit Page
+  app.get("/closet", function(req, res) {
+    db.Outfit.findAll({}).then(function(data) {
+      res.render("closet", { outfit: data });
     });
-  });
-  app.get("/buildt", function(req, res) {
-    db.Shoes.findAll({}).then(function(data) {
-      res.render("buildt", { Shoes: data });
-    });
-  });
-
-  // app.get("/closet", function(req, res) {
-  //   res.render("closet", data);
-  // });
-
-  app.get("/outfits", function(req, res) {
-    res.render("outfits", data);
   });
 
   // Render 404 page
