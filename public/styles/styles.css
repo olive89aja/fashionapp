@@ -1,5 +1,6 @@
 #swiftly {
   font-family: "hypatia-sans-pro", sans-serif;
+  color: black;
   font-weight: 400;
   font-style: normal;
   font-size: 3em;
@@ -58,6 +59,7 @@ body {
   transform: rotate(-90deg);
   padding: 25px;
   margin-top: 40px;
+  color: black;
 }
 
 .menu a:hover {
