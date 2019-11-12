@@ -17,6 +17,9 @@ module.exports = function(app) {
     db.Tops.findAll({}).then(function(dbTops) {
       res.json(dbTops);
     });
+    db.Pants.findAll({}).then(function(dbPants) {
+      res.json(dbPants);
+    });
   });
   app.get("/api/all/pants", function(req, res) {
     db.Pants.findAll({}).then(function(dbPants) {
@@ -35,10 +38,12 @@ module.exports = function(app) {
   });
 
   //Create new outfit
-  app.post("api/closet", function(req, res) {
+  app.post("/api/closet", function(req, res) {
     db.Outfit.create({
-      outfits: req.body.outfits,
-      foreignkey: req.body.id
+      dresses: req.body.dress,
+      tops: req.body.top,
+      pants: req.body.pant,
+      shoes: req.body.shoe
     }).then(function(dbOutfits) {
       res.json(dbOutfits);
     });
