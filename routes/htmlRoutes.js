@@ -109,7 +109,7 @@ module.exports = function(app) {
 
   app.get("/closet", function(req, res) {
     db.Outfit.findAll({}).then(function(data) {
-      res.render("closet");
+      res.render("closet", { outfit: data });
     });
   });
 
