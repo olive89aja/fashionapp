@@ -6,7 +6,9 @@
   margin: auto, 0;
   transform: rotate(-90deg);
   padding: 10px;
-  margin-top: 50px;
+  margin-top: 125px;
+  margin-left: -7px;
+  position: fixed;
 }
 #full-logo:hover {
   background-color: transparent;
@@ -40,9 +42,11 @@ body {
   margin-top: 20px;
 } */
 #logo-menu {
-  width: 150px;
+  width: 127px;
   margin-top: 50px;
   margin-right: 100px;
+  margin-left: -30px;
+  position: fixed;
 }
 
 .menu a {
@@ -52,7 +56,7 @@ body {
   font-size: 1.8em;
   margin: auto, 0;
   transform: rotate(-90deg);
-  padding: 33px;
+  padding: 25px;
   margin-top: 40px;
 }
 
@@ -64,6 +68,8 @@ body {
   background-clip: white;
 }
 .menu-list {
+  position: fixed;
+  margin-top: 220px;
 }
 .has-text-white {
   color: #f0f0f0;
