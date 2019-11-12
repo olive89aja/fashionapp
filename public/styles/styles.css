@@ -41,6 +41,16 @@ body {
 .column .is-11 {
   background-clip: white;
 }
-#has-text-white{
-  
+#has-text-white {
 }
+/* #white-box {
+  background-color: #f0f0f0;
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+} */
