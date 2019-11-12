@@ -6,28 +6,6 @@ module.exports = function(app) {
     res.render("index");
   });
 
-  // Load closet page where the outfits are made
-  // app.get("/closet", function(req, res) {
-  //   db.Closet.findOne({ where: { id: req.params.id } }).then(function(
-  //     dbCloset
-  //   ) {
-  //     res.render("closet", {
-  //       closet: dbCloset
-  //     });
-  //   });
-  // });
-
-  // Load example page and pass in an example by id
-  // app.get("/closet/:id", function(req, res) {
-  //   db.Outfit.findOne({ where: { id: req.params.id } }).then(function(
-  //     dbOutfit
-  //   ) {
-  //     res.render("outfit", {
-  //       outfit: dbOutfit
-  //     });
-  //   });
-  // });
-
   // Load comment page and pass in an example by id
   app.get("/comments", function(req, res) {
     db.Comment.findOne({ where: { id: req.params.id } }).then(function(
@@ -50,6 +28,38 @@ module.exports = function(app) {
   //     ]
   //   }).then(function(AllData) {
   //     res.render("browse", AllData);
+  //   });
+  // });
+  app.get("/browse/all", function(req, res) {
+    db.Tops.findAll({}).then(function(Tops) {
+      db.Pants.findAll({}).then(function(Pants) {
+        db.Dresses.findAll({}).then(function(Dresses) {
+          db.Shoes.findAll({}).then(function(Shoes) {
+            res.render("buildt", {
+              Tops,
+              Pants,
+              Dresses,
+              Shoes
+            });
+          });
+        });
+      });
+    });
+  });
+  // app.get("/browse/all", function(req, res) {
+  //   db.Tops.findAll({}).then(function(Tops) {
+  //     db.Pants.findAll({}).then(function(Pants) {
+  //       db.Dresses.findAll({}).then(function(Dresses) {
+  //         db.Shoes.findAll({}).then(function(Shoes) {
+  //           res.render("browse", {
+  //             Tops,
+  //             Pants,
+  //             Dresses,
+  //             Shoes
+  //           });
+  //         });
+  //       });
+  //     });
   //   });
   // });
   app.get("/browse/tops", function(req, res) {
@@ -97,8 +107,10 @@ module.exports = function(app) {
   //   res.render("closet", data);
   // });
 
-  app.get("/outfits", function(req, res) {
-    res.render("outfits", data);
+  app.get("/closet", function(req, res) {
+    db.Outfit.findAll({}).then(function(data) {
+      res.render("closet");
+    });
   });
 
   // Render 404 page
