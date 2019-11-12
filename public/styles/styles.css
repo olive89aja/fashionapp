@@ -1,13 +1,51 @@
-.hero.has-background {
+body,
+html {
+  /* height: 100%; */
+  margin: 0;
+}
+#swiftly {
+  font-family: "hypatia-sans-pro", sans-serif;
+  color: black;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3em;
+  margin: auto, 0;
+  transform: rotate(-90deg);
+  padding: 10px;
+  margin-top: 55px;
+  margin-left: -7px;
+  position: fixed;
+}
+#intro-text {
+  font-size: 1.3em;
+  color: #f0f0f0;
+  margin-left: -180px;
+  margin-top: 115px;
+}
+.menu {
+  position: fixed;
+}
+#full-logo:hover {
+  background-color: transparent;
+  color: #3273dc;
+}
+/* .hero.has-background {
   position: relative;
   overflow: hidden;
-}
+} */
 .hero-background {
-  position: absolute;
   object-fit: cover;
   object-position: center center;
   width: 100%;
   height: 100%;
+  position: relative;
+}
+#reinvent-ypurself {
+  position: relative;
+}
+
+#logo-menu {
+  position: fixed;
 }
 
 .navbar-item img {
@@ -15,42 +53,97 @@
   width: 100%;
   padding: 20px;
   margin-left: 400px;
+  position: relative;
   /* margin-right: auto; */
 }
 body {
   background-color: #f0f0f0;
 }
-#swiftly {
-  font-size: 2.5em;
-  margin: auto, 0;
-  transform: rotate(-90deg);
-  padding: 10px;
-  margin-top: 100px;
-}
-.menu img {
+
+/* .menu img {
   padding: 5px;
   margin-top: 20px;
+} */
+#logo-menu {
+  width: 127px;
+  margin-top: 50px;
+  margin-right: 100px;
+  margin-left: -30px;
+  position: relative;
 }
+
 .menu a {
-  font-size: 1.5em;
+  font-family: "hypatia-sans-pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.8em;
   margin: auto, 0;
   transform: rotate(-90deg);
-  padding: 10px;
+  padding: 25px;
   margin-top: 40px;
+
+  color: black;
 }
+
+.menu a:hover {
+  background-color: transparent;
+}
+
 .column .is-11 {
-  background-clip: white;
+  background-clip: rgb(238, 24, 24);
 }
-#has-text-white {
+.menu-list {
+  position: fixed;
+  margin-top: 220px;
 }
-/* #white-box {
-  background-color: #f0f0f0;
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-} */
+.has-text-white {
+  position: relative;
+  color: black;
+  font-family: "hypatia-sans-pro", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 20em;
+}
+.bg-img-1,
+.bg-img-goth,
+.bg-img-prep,
+.bg-img-kawaii,
+.bg-img-last {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-img-1 {
+  background-image: url(../images/swiftly-homepage.gif);
+  min-height: 100%;
+}
+.bg-img-goth {
+  background-image: url(../images/goth.png);
+  min-height: 100%;
+}
+.goth-text {
+  min-height: 100%;
+}
+.bg-img-prep {
+  background-image: url(../images/preppy.jpg);
+  min-height: 100%;
+}
+
+.bg-img-kawaii {
+  background-image: url(../images/kawaii2.jpg);
+  min-height: 100%;
+}
+
+.bg-img-last {
+  background-image: url(../images/last-home-page-swiftly-0.png);
+  min-height: 100%;
+}
+
+#last-page-text {
+  height: 150px;
+  margin-bottom: 500px;
+  margin-right: 85px;
+}
