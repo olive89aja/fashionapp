@@ -9,14 +9,19 @@
   },
   "test": {
     "username": "root",
+    "password": "root",
+    "database": "au6yhcv5y3ztz6ki",
+    "host": "lolyz0ok3stvj6f0.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
 
-    "database": "outfitsDB",
-
-    "host": "localhost",
     "dialect": "mysql",
     "logging": false
   },
   "production": {
+    "username": "root",
+    "password": "root",
+    "database": "au6yhcv5y3ztz6ki",
+    "host": "lolyz0ok3stvj6f0.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
