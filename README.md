@@ -6,7 +6,7 @@ Swiftly is an app you can look through different images of shirts, pants, skirts
 
 ## The Team
 
-Abdul Shaikh: Sequelize and Api Routes <br> Olivier Auberger: MySQL, Ideation, Api Routes<br> Rosalis Freebairn: UI Designer, MySQL <br> Brittney Galloway: UI Developer, HTML Routes
+Abdul Shaikh: Sequelize, Api Routes, Seeders <br> Olivier Auberger: MySQL, Ideation, Api Routes<br> Rosalis Freebairn: UI Designer, MySQL <br> Brittney Galloway: UI Developer, HTML Routes
 
 ## Technologies
 
