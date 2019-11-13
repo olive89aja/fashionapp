@@ -49,6 +49,19 @@ module.exports = function(app) {
       });
     });
   });
+  //POST TOPS TO TOPS TABLE
+  app.post("/api/tops", function(req, res) {
+    var topsArr = [];
+    for (var i = 0; i < tops.length; i++) {
+      var results = tops[i].link;
+      topsArr.push(results);
+    }
+    topsArr.forEach(function(top) {
+      db.Tops.create({
+        url: top
+      });
+    });
+  });
   //POST BOTTOMS TO PANTS TABLE
   app.post("/api/bottoms", function(req, res) {
     var pantsArr = [];
@@ -86,6 +99,15 @@ module.exports = function(app) {
       db.Shoes.create({
         url: shoe
       });
+    });
+    app.get("/", function(req, res) {
+      var pantsArr = [];
+      for (var i = 0; i < pants.length; i++) {
+        var results = pants[i].link;
+        pantsArr.push(results);
+      }
+
+      res.json(pantsArr);
     });
   });
 };
