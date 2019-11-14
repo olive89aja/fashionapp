@@ -10,7 +10,7 @@ Abdul Shaikh: Sequelize, Api Routes <br> Olivier Auberger: MySQL/Sequelize, Idea
 
 ## Technologies
 
-NodeJs <br> Express<br> Sequelize <br> MySQL <br> Bulma UI Framework<br>
+NodeJs <br> Express<br> Sequelize <br> MySQL <br> Bulma UI Framework<br>Handlebars
 
 ## How to Use
 
